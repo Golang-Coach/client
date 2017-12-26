@@ -1,10 +1,11 @@
-import Grid from 'material-ui/Grid';
-import { withStyles } from 'material-ui/styles';
-import PropTypes from 'prop-types';
 /**
  ** Created by Durgaprasad Budhwani on 12/18/2017.
  * */
 // @flow
+
+import Grid from 'material-ui/Grid';
+import { withStyles } from 'material-ui/styles';
+import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 import Package from './packages/package';
 

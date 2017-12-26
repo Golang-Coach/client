@@ -17,8 +17,8 @@
     "linebreak-style": 0,
     "no-undef":0,
     "react/forbid-prop-types": 0,
-    "computed-property-spacing":0,
-    "no-useless-computed-key":"off"
+    "computed-property-spacing": 0,
+    "no-useless-computed-key": 0
 //
 //    "flowtype/boolean-style": [
 //      2,

@@ -78,6 +78,7 @@ class Package extends PureComponent<Props> {
           <span className={classes.name}>{repository.name}</span>
           <span
             className={classNames({
+              /* eslint-disable no-useless-computed-key */
               ['text-grey']: true,
               [classes.timeAgo]: true,
             })}
