@@ -146,7 +146,7 @@ export default class SearchBar extends PureComponent<Props, State> {
   handleCancel = () => {
     this.setState({ active: false, value: '' });
     if (this.props.onChange) {
-      this.props.onChange(e.target.value);
+      this.props.onChange('');
     }
   };
 
