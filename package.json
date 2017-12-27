@@ -54,7 +54,7 @@
     "test:lint:js": "eslint --ext=js --ext=jsx .",
     "eject": "react-scripts eject",
     "flow": "flow",
-    "eslint": "eslint .",
+    "eslint": "eslint ./src",
     "test": "jest",
     "test-ci": "jest -u --testResultsProcessor='jest-junit'",
     "codecov": "codecov"
