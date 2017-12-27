@@ -57,7 +57,7 @@
     "eslint": "eslint",
     "test": "jest",
     "test-ci": "jest -u --testResultsProcessor='jest-junit'",
-    "codecov": "yar"
+    "codecov": "codecov"
   },
   "jest": {
     "verbose": true,
