@@ -50,11 +50,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "yarn run flow && yarn run eslint && react-scripts build",
     "test:lint:js": "eslint --ext=js --ext=jsx .",
     "eject": "react-scripts eject",
     "flow": "flow",
-    "eslint": "eslint",
+    "eslint": "eslint .",
     "test": "jest",
     "test-ci": "jest -u --testResultsProcessor='jest-junit'",
     "codecov": "codecov"
