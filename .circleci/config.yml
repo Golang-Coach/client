@@ -32,12 +32,12 @@ jobs:
       - run: yarn build
       - store_artifacts:
           path: build
-#      - run:
-#            name: Jest Suite
-#            command: yarn run test-ci
-#            environment:
-#              JEST_JUNIT_OUTPUT: "reports/junit/js-test-results.xml"
-#      - run: yarn run codecov
+      - run:
+            name: Jest Suite
+            command: yarn run test-ci
+            environment:
+              JEST_JUNIT_OUTPUT: "reports/junit/js-test-results.xml"
+      - run: yarn run codecov
 
       - setup_remote_docker
 
