@@ -5,13 +5,15 @@
 
 import Grid from 'material-ui/Grid';
 import { withStyles } from 'material-ui/styles';
+import Card from 'material-ui/Card';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
+import ReadMe from './gitcontent/readme';
 import Package from './packages/package';
 
 const styles = () => ({
   container: {
-    marginTop: 10,
+    padding: 10,
     alignSelf: 'center',
   },
   content: {
@@ -22,6 +24,15 @@ const styles = () => ({
   },
   padding0: {
     padding: '0 !important',
+  },
+  packages: {
+    overflow: 'auto',
+    height: 'calc(100vh - 85px)',
+  },
+  gitContent: {
+    overflow: 'auto',
+    height: 'calc(100vh - 85px)',
+    paddingLeft: 10,
   },
 });
 
@@ -44,25 +55,36 @@ class Content extends PureComponent<Props> {
         spacing={0}
       >
         <Grid
+          className={classes.packages}
           item
           xs={5}
         >
-          <Package />
-          <Package />
-          <Package />
-          <Package />
-          <Package />
-          <Package />
-          <Package />
-          <Package />
-          <Package />
-          <Package />
+          <Package/>
+          <Package/>
+          <Package/>
+          <Package/>
+          <Package/>
+          <Package/>
+          <Package/>
+          <Package/>
+          <Package/>
+          <Package/>
+          <Package/>
+          <Package/>
+          <Package/>
+          <Package/>
+          <Package/>
+          <Package/>
+          <Package/>
         </Grid>
         <Grid
+          className={classes.gitContent}
           item
           xs={7}
         >
-          <Package />
+          <Card>
+            <ReadMe />
+          </Card>
         </Grid>
       </Grid>
     );

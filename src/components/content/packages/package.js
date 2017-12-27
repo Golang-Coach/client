@@ -4,23 +4,24 @@
 // @flow
 
 import ButtonBase from 'material-ui/ButtonBase';
-import Card from 'material-ui/Card';
+import grey from 'material-ui/colors/grey';
 import { withStyles } from 'material-ui/styles';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Library from './../../common/library';
 
-const styles = () => ({
+const styles = theme => ({
   container: {
-    marginTop: 8,
-    marginLeft: 8,
-    marginRight: 8,
+    // marginTop: 8,
+    // marginLeft: 8,
+    // marginRight: 8,
+    borderBottom: `1px solid ${grey[ 300 ]}`,
     padding: 0,
+    backgroundColor: 'white',
     cursor: 'pointer',
     '&:hover': {
-      boxShadow: '0px 1px 7px 0px rgba(0, 188, 212, 0.2), ' +
-      '0px 2px 2px 3px rgba(0, 188, 212, 0.14), ' +
-      '0px 3px 1px -7px rgba(0, 188, 212, 0.12)',
+      backgroundColor: grey[ 50 ],
+      border: `1px solid ${theme.palette.primary[ 500 ]}`,
     },
   },
   card: {
@@ -55,9 +56,9 @@ class Package extends PureComponent<Props> {
       <ButtonBase
         className={classes.container}
       >
-        <Card className={classes.card}>
+        <div className={classes.card}>
           <Library />
-        </Card>
+        </div>
       </ButtonBase>
     );
   }
