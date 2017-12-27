@@ -59,23 +59,23 @@ class Content extends PureComponent<Props> {
           item
           xs={5}
         >
-          <Package/>
-          <Package/>
-          <Package/>
-          <Package/>
-          <Package/>
-          <Package/>
-          <Package/>
-          <Package/>
-          <Package/>
-          <Package/>
-          <Package/>
-          <Package/>
-          <Package/>
-          <Package/>
-          <Package/>
-          <Package/>
-          <Package/>
+          <Package />
+          <Package />
+          <Package />
+          <Package />
+          <Package />
+          <Package />
+          <Package />
+          <Package />
+          <Package />
+          <Package />
+          <Package />
+          <Package />
+          <Package />
+          <Package />
+          <Package />
+          <Package />
+          <Package />
         </Grid>
         <Grid
           className={classes.gitContent}
