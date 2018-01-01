@@ -1,13 +1,16 @@
 // @flow
-
 // import Footer from './components/footer';
 import pink from 'material-ui/colors/blue';
 import cyan from 'material-ui/colors/cyan';
 import { createMuiTheme, MuiThemeProvider } from 'material-ui/styles';
 import React, { PureComponent } from 'react';
+import { Provider } from 'react-redux';
 import './App.css';
 import Content from './components/content';
 import Header from './components/header';
+import configureStore from './store/configureStore';
+
+const store = configureStore();
 // import 'animate.css/animate.min.css';
 
 type State = {
@@ -42,12 +45,14 @@ export default class App extends PureComponent<Props, State> {
     });
 
     return (
-      <MuiThemeProvider theme={theme}>
-        <div>
-          <Header />
-          <Content />
-        </div>
-      </MuiThemeProvider>
+      <Provider store={store}>
+        <MuiThemeProvider theme={theme}>
+          <div>
+            <Header />
+            <Content />
+          </div>
+        </MuiThemeProvider>
+      </Provider>
     );
   }
 }

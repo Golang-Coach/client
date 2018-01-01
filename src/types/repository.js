@@ -6,9 +6,15 @@
 import type { RepositoryUser } from './repository-user';
 
 export type Repository = {
+  _id : string,
   name : string,
   description : string,
   user : RepositoryUser,
   license : string,
-  stars : number
+  stars : number,
+  readme : string,
+  latestRelease : string,
+  publishedAt : Date,
+  modifiedAt : Date,
+  keywords : Array<string>
 }

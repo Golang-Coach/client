@@ -7,5 +7,4 @@ export type RepositoryUser = {
   name : string,
   userName : string,
   profileUrl : string,
-  updatedAt : string,
 }

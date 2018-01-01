@@ -9,7 +9,8 @@ import { withStyles } from 'material-ui/styles';
 import PropTypes from 'prop-types';
 
 import React from 'react';
-import type { Repository } from './../../type/repository';
+import TimeAgo from 'timeago-react';
+import type { Repository } from './../../types';
 import License from './license';
 import Stars from './stars';
 
@@ -66,7 +67,7 @@ class Package extends PureComponent<Props> {
       },
       license: 'mit',
       stars: 100,
-      description: 'Charged cross-browser and cross-platform scrollable container implementation with no external dependencies but React 0.13+',
+      description: 'Essential cross-platform UI components for React Native.',
     },
   };
 
@@ -82,19 +83,42 @@ class Package extends PureComponent<Props> {
               ['text-grey']: true,
               [classes.timeAgo]: true,
             })}
-          > {repository.user.updatedAt} </span>
+          >updated </span>
+          <TimeAgo
+            className={classNames({
+              /* eslint-disable no-useless-computed-key */
+              ['text-grey']: true,
+              [classes.timeAgo]: true,
+            })}
+            datetime={repository.updatedAt}
+          />
+          <span className={classNames({
+            /* eslint-disable no-useless-computed-key */
+            ['text-grey']: true,
+            [classes.timeAgo]: true,
+          })}
+          >by
+          </span>
           <Avatar
             alt={repository.user.name}
             src={repository.user.profileUrl}
             className={classes.avatar}
           />
-          <span className="text-grey">{repository.user.userName}</span>
+          <span
+            className="text-grey"
+          >{repository.user.userName}</span>
         </div>
-        <div className="text-grey">{repository.description}
+        <div
+          className="text-grey"
+        >{repository.description}
         </div>
         <div className={classes.marginTop5}>
-          <License id={repository.license} />
-          <Stars count={repository.stars} />
+          <License
+            id={repository.license}
+          />
+          <Stars
+            count={repository.stars}
+          />
         </div>
       </div>
     );

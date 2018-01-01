@@ -3,49 +3,24 @@
  * */
 // @flow
 
-import AppBar from 'material-ui/AppBar';
-import { withStyles } from 'material-ui/styles';
-import Toolbar from 'material-ui/Toolbar';
-import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
-import SearchBar from '../common/search-bar';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { searchPackages } from './../../actions/search';
+import AppBar from './app-bar';
 
-const styles = () => ({
-  container: {},
-  content: {},
-  padding0: {},
-});
-
-type Props = {
-  classes : any
-}
+const dispatchToProps = dispatch => bindActionCreators({
+  searchPackages,
+}, dispatch);
 
 class Header extends PureComponent<Props> {
-  static propTypes = {
-    classes: PropTypes.object.isRequired,
-  };
-
   render() {
-    const { classes } = this.props;
     return (
       <AppBar
-        className={classes.container}
-        position="static"
-      >
-        <Toolbar>
-          <SearchBar
-            onChange={() => {}}
-            onRequestSearch={() => {}}
-            style={{
-              margin: '0 auto',
-              maxWidth: 800,
-              flex: 1,
-            }}
-          />
-        </Toolbar>
-      </AppBar>
+        {...this.props}
+      />
     );
   }
 }
 
-export default withStyles(styles)(Header);
+export default connect(null, dispatchToProps)(Header);

@@ -5,7 +5,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import type { Repository } from '../../type/repository';
+import type { Repository } from '../../types';
 
 type Props = {
   repository : Repository

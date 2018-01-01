@@ -8,6 +8,7 @@ import grey from 'material-ui/colors/grey';
 import { withStyles } from 'material-ui/styles';
 import PropTypes from 'prop-types';
 import React from 'react';
+import type { Repository } from '../../../types';
 import Library from './../../common/library';
 
 const styles = theme => ({
@@ -15,6 +16,7 @@ const styles = theme => ({
     // marginTop: 8,
     // marginLeft: 8,
     // marginRight: 8,
+    width: '100%',
     borderBottom: `1px solid ${grey[ 300 ]}`,
     padding: 0,
     backgroundColor: 'white',
@@ -27,6 +29,8 @@ const styles = theme => ({
   card: {
     padding: 10,
     display: 'flex',
+    flex: 100,
+    alignItems: 'stretch',
     flexDirection: 'column',
     cursor: 'pointer',
     textAlign: 'left',
@@ -40,7 +44,8 @@ const styles = theme => ({
 });
 
 type Props = {
-  classes : any
+  classes : any,
+  repository : Repository,
 }
 
 const { PureComponent } = React;
@@ -48,16 +53,19 @@ const { PureComponent } = React;
 class Package extends PureComponent<Props> {
   static propTypes : Props = {
     classes: PropTypes.object.isRequired,
+    repository: PropTypes.object.isRequired,
   };
 
   render() {
-    const { classes } = this.props;
+    const { classes, repository } = this.props;
     return (
       <ButtonBase
         className={classes.container}
       >
         <div className={classes.card}>
-          <Library />
+          <Library
+            repository={repository}
+          />
         </div>
       </ButtonBase>
     );

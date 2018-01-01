@@ -9,7 +9,8 @@ import Card from 'material-ui/Card';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 import ReadMe from './gitcontent/readme';
-import Package from './packages/package';
+import Packages from './packages/packages';
+import Overlay from './../common/overlay';
 
 const styles = () => ({
   container: {
@@ -28,11 +29,13 @@ const styles = () => ({
   packages: {
     overflow: 'auto',
     height: 'calc(100vh - 85px)',
+    position: 'relative',
   },
   gitContent: {
     overflow: 'auto',
     height: 'calc(100vh - 85px)',
     paddingLeft: 10,
+    position: 'relative',
   },
 });
 
@@ -59,23 +62,12 @@ class Content extends PureComponent<Props> {
           item
           xs={5}
         >
-          <Package />
-          <Package />
-          <Package />
-          <Package />
-          <Package />
-          <Package />
-          <Package />
-          <Package />
-          <Package />
-          <Package />
-          <Package />
-          <Package />
-          <Package />
-          <Package />
-          <Package />
-          <Package />
-          <Package />
+          <Packages />
+          <Overlay
+            color={'rbga(0,0,0, 0.4)'}
+            eventEnable
+            visible
+          />
         </Grid>
         <Grid
           className={classes.gitContent}
