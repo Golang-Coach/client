@@ -27,8 +27,8 @@ type Props = {
   classes : any
 }
 
-class Footer extends PureComponent<Props, void, void> {
-  static propTypes : Props = {
+class Footer extends PureComponent<Props> {
+  static propTypes = {
     classes: PropTypes.object.isRequired,
   };
 

@@ -51,7 +51,7 @@ type Props = {
 const { PureComponent } = React;
 
 class Package extends PureComponent<Props> {
-  static propTypes : Props = {
+  static propTypes = {
     classes: PropTypes.object.isRequired,
     repository: PropTypes.object.isRequired,
   };

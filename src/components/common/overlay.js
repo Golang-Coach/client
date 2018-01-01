@@ -31,7 +31,7 @@ type Props = {
 const { PureComponent } = React;
 
 class Overlay extends PureComponent<Props> {
-  static propTypes : Props = {
+  static propTypes = {
     classes: PropTypes.object.isRequired,
     color: PropTypes.string.isRequired,
     eventEnable: PropTypes.bool.isRequired,

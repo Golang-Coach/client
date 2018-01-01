@@ -12,8 +12,8 @@ type Props = {
   repositories : Array<Repository>
 }
 
-class Packages extends PureComponent<Props, void, void> {
-  static propTypes : Props = {
+class Packages extends PureComponent<Props> {
+  static propTypes = {
     repositories: PropTypes.array.isRequired,
   };
 

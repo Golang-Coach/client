@@ -14,7 +14,7 @@ type Props = {
 const { PureComponent } = React;
 
 export default class MetaTags extends PureComponent<Props> {
-  static propTypes : Props = {
+  static propTypes = {
     repository: PropTypes.object.isRequired,
   };
 

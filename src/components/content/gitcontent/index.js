@@ -15,8 +15,8 @@ type Props = {
   classes : any
 }
 
-class GitContent extends PureComponent<Props, void, void> {
-  static propTypes : Props = {
+class GitContent extends PureComponent<Props> {
+  static propTypes = {
     classes: PropTypes.object.isRequired,
   };
 

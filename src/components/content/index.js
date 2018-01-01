@@ -44,7 +44,7 @@ type Props = {
 }
 
 class Content extends PureComponent<Props> {
-  static propTypes : Props = {
+  static propTypes = {
     classes: PropTypes.object.isRequired,
   };
 
