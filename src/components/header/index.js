@@ -13,7 +13,9 @@ const dispatchToProps = dispatch => bindActionCreators({
   searchPackages,
 }, dispatch);
 
-class Header extends PureComponent {
+type Props = {}
+
+class Header extends PureComponent<Props> {
   render() {
     return (
       <AppBar
