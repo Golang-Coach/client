@@ -1,8 +1,0 @@
-/**
- * Created by Durgaprasad Budhwani on 12/29/2017.
- */
-export const GET_README_CONTENT = 'GET_README_CONTENT';
-export const FETCH_README_CONTENT = 'FETCH_README_CONTENT';
-export const SEARCH_PACKAGE = 'SEARCH_PACKAGE';
-export const SEARCH_PACKAGE_RESULT = 'SEARCH_PACKAGE_RESULT';
-export const SEARCH_PACKAGE_ERROR = 'SEARCH_PACKAGE_ERROR';
