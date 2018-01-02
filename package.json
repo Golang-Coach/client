@@ -2,6 +2,12 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Golang-Coach/client.git"
+  },
+  "license": "Apache 2.0",
+  "homepage": "http://golang.coach",
   "dependencies": {
     "axios": "^0.17.1",
     "babel-polyfill": "^6.26.0",
