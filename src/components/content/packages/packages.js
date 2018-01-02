@@ -5,11 +5,11 @@
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import type { Repository } from '../../../types';
+import type { Repository, RepositoriesInfo } from '../../../types';
 import Package from './package';
 
 type Props = {
-  repositories : Array<Repository>
+  repositoriesInfo : RepositoriesInfo
 }
 
 class Packages extends PureComponent<Props> {
