@@ -4,7 +4,7 @@
 import axios from 'axios';
 
 // eslint-disable-next-line
-export const GetRepositoriesByQuery = async (query : ?string) => {
+export const GetRepositories = async (query : ?string, page: ?number, limit: ?number) => {
   try {
     const { data } = await axios.get('packages.json');
     return { error: null, res: data };

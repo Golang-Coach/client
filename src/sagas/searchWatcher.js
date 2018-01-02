@@ -2,13 +2,26 @@
  * Created by Durgaprasad Budhwani on 12/29/2017.
  */
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { updateSearchPackages } from '../actions/search';
-import { GetRepositoriesByQuery } from '../services';
+import { addPackages, updateSearchPackages } from '../actions/search';
+import { GetRepositories } from '../services';
 
-import { SEARCH_PACKAGE, SEARCH_PACKAGE_ERROR } from '../utils/constants';
+import {
+  ADD_PACKAGES,
+  ADD_PACKAGES_START,
+  ADD_PACKAGES_COMPLETED,
+  ADD_PACKAGE_ERROR,
+  COMPLETED,
+  INPROGRESS,
+  SEARCH_PACKAGE,
+  SEARCH_PACKAGE_COMPLETED,
+  SEARCH_PACKAGE_ERROR,
+  SEARCH_PACKAGE_START,
+} from '../utils/constants';
 
-function* GetRepositories({ query }): Generator<any, void, void> {
-  const { error, res } = yield call(GetRepositoriesByQuery, query);
+function* GetRepositoriesByQuery({ query }) : Generator<any, void, void> {
+  yield put({ type: SEARCH_PACKAGE_START, status: INPROGRESS });
+  const { error, res } = yield call(GetRepositories, query);
+  yield put({ type: SEARCH_PACKAGE_COMPLETED, status: COMPLETED });
   if (res) {
     yield put(updateSearchPackages(res));
   } else {
@@ -16,6 +29,21 @@ function* GetRepositories({ query }): Generator<any, void, void> {
   }
 }
 
-export default function* watchSearchQuery() {
-  yield takeLatest(SEARCH_PACKAGE, GetRepositories);
+function* GetRepositoriesByPagination({ query, page, limit }) : Generator<any, void, void> {
+  yield put({ type: ADD_PACKAGES_START, status: INPROGRESS });
+  const { error, res } = yield call(GetRepositories, query, page, limit);
+  yield put({ type: ADD_PACKAGES_COMPLETED, status: COMPLETED });
+  if (res) {
+    yield put(addPackages(res));
+  } else {
+    yield put({ type: ADD_PACKAGE_ERROR, error });
+  }
+}
+
+export function* watchSearchQuery() {
+  yield takeLatest(SEARCH_PACKAGE, GetRepositoriesByQuery);
+}
+
+export function* watchSearchListScroll() {
+  yield takeLatest(ADD_PACKAGES, GetRepositoriesByPagination);
 }

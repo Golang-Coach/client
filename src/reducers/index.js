@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
+import operations from './operations';
+import repositories from './repositories-info';
 import repository from './repository';
-import repositories from './repositories';
 
 const rootReducer = combineReducers({
+  operations,
   repository,
   repositories,
 });

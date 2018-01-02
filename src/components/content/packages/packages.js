@@ -14,7 +14,7 @@ type Props = {
 
 class Packages extends PureComponent<Props> {
   static propTypes = {
-    repositories: PropTypes.array.isRequired,
+    repositoriesInfo: PropTypes.object.isRequired,
   };
 
   renderItem(repository : Repository) {
@@ -27,17 +27,17 @@ class Packages extends PureComponent<Props> {
   }
 
   render() {
-    const { repositories } = this.props;
+    const { repositoriesInfo } = this.props;
     return (
       <div>
-        {repositories && repositories.map(this.renderItem.bind(this))}
+        {repositoriesInfo && repositoriesInfo.repositories && repositoriesInfo.repositories.map(this.renderItem.bind(this))}
       </div>
     );
   }
 }
 
 const stateToProps = state => ({
-  repositories: state.repositories,
+  repositoriesInfo: state.repositoriesInfo,
 });
 
 export default connect(stateToProps)(Packages);
