@@ -35,6 +35,12 @@ jobs:
 
       # run tests!
       - run: yarn build
+
+      - run: |
+                git config --global user.email $GIT_EMAIL
+                git config --global user.name $GIT_USER
+      - run: yarn deploy
+
       - store_artifacts:
           path: build
       - run:
