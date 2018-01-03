@@ -5,10 +5,9 @@
 
 import Grid from 'material-ui/Grid';
 import { withStyles } from 'material-ui/styles';
-import Card from 'material-ui/Card';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
-import ReadMe from './gitcontent/readme';
+import GitContent from './gitcontent/gitcontent';
 import Packages from './packages/packages';
 import Overlay from './../common/overlay';
 
@@ -74,9 +73,7 @@ class Content extends PureComponent<Props> {
           item
           xs={7}
         >
-          <Card>
-            <ReadMe />
-          </Card>
+          <GitContent />
         </Grid>
       </Grid>
     );

@@ -1,5 +1,5 @@
 /**
- * Created by Durgaprasad Budhwani on 12/24/2017.
+ * Created by Durgaprasad Budhwani on 1/3/2018.
  */
 
 import Card from 'material-ui/Card';
@@ -23,7 +23,7 @@ class GitContent extends PureComponent<Props> {
   static propTypes = {
     classes: PropTypes.object.isRequired,
   };
-
+  
   render() {
     return (
       <Card>

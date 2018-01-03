@@ -5,6 +5,7 @@ import cyan from 'material-ui/colors/cyan';
 import { createMuiTheme, MuiThemeProvider } from 'material-ui/styles';
 import React, { PureComponent } from 'react';
 import { Provider } from 'react-redux';
+import { BrowserRouter as Router, } from 'react-router-dom';
 import './App.css';
 import Content from './components/content';
 import Header from './components/header';
@@ -46,12 +47,14 @@ export default class App extends PureComponent<Props, State> {
 
     return (
       <Provider store={store}>
-        <MuiThemeProvider theme={theme}>
-          <div>
-            <Header />
-            <Content />
-          </div>
-        </MuiThemeProvider>
+        <Router>
+          <MuiThemeProvider theme={theme}>
+            <div>
+              <Header />
+              <Content />
+            </div>
+          </MuiThemeProvider>
+        </Router>
       </Provider>
     );
   }
