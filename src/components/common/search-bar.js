@@ -15,7 +15,7 @@ import React, { PureComponent } from 'react';
 const getStyles = (props, state) => {
   const { disabled } = props;
   const { value } = state;
-  const nonEmpty = value.length > 0;
+  const nonEmpty = value && value.length > 0;
 
   return {
     root: {
@@ -131,7 +131,7 @@ export default class SearchBar extends PureComponent<Props, State> {
 
   handleBlur = () => {
     this.setState({ focus: false });
-    if (this.state.value.trim().length === 0) {
+    if (!this.state.value || this.state.value.trim().length === 0) {
       this.setState({ value: '' });
     }
   };

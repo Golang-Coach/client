@@ -5,14 +5,13 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { searchPackages } from './../../actions/search';
+import { push } from 'react-router-redux';
 import ApplicationBar from './app-bar';
 
-const dispatchToProps = dispatch => bindActionCreators({
-  searchPackages,
-}, dispatch);
-
-type Props = {}
+type Props = {
+  search: string,
+  push: Function
+}
 
 class Header extends PureComponent<Props> {
   render() {
@@ -24,4 +23,12 @@ class Header extends PureComponent<Props> {
   }
 }
 
-export default connect(null, dispatchToProps)(Header);
+const dispatchToProps = dispatch => bindActionCreators({
+  push,
+}, dispatch);
+
+const stateToProps = state => ({
+  search: state.router.location.search,
+});
+
+export default connect(stateToProps, dispatchToProps)(Header);
