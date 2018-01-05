@@ -2,7 +2,7 @@
  * Created by Durgaprasad Budhwani on 12/25/2017.
  */
 // @flow
-
+import Helmet from 'react-helmet';
 import React from 'react';
 import PropTypes from 'prop-types';
 import type { Repository } from '../../types';
@@ -21,7 +21,7 @@ export default class MetaTags extends PureComponent<Props> {
   render() {
     const { repository } = this.props;
     return (
-      <yarn>
+      <Helmet>
         <title>{repository.name}</title>
         <meta
           property="og:title"
@@ -47,7 +47,7 @@ export default class MetaTags extends PureComponent<Props> {
           name="twitter:image"
           content={repository.user.profileUrl}
         />
-      </yarn>
+      </Helmet>
     );
   }
 }

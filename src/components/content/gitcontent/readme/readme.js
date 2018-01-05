@@ -10,6 +10,7 @@ import React, { PureComponent } from 'react';
 import type { Repository } from '../../../../types/repository';
 import Overlay from '../../../common/overlay';
 import Spinner from '../../../common/spinner';
+import MetaTags from './../../../common/meta-tags';
 
 
 const styles = () => ({
@@ -35,6 +36,9 @@ class ReadMe extends PureComponent<Props> {
     const { classes, repository, busy } = this.props;
     return (
       <div>
+        <MetaTags
+          repository={repository}
+        />
         <div
           dangerouslySetInnerHTML={{ __html: repository.readme }}
           className={classes.container}
