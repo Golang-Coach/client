@@ -2,43 +2,27 @@
  * Created by Durgaprasad Budhwani on 12/24/2017.
  */
 
-import Card from 'material-ui/Card';
-import { Switch, Route } from 'react-router-dom';
-import ReadMe from './readme';
-import ReadMe1 from './readme1';
-import Overlay from './../../common/overlay';
-import { withStyles } from 'material-ui/styles';
-import PropTypes from 'prop-types';
-import React, { PureComponent } from 'react';
 
-const styles = () => ({
-  container: {},
-});
+import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
+import GitContent from './gitcontent';
 
 type Props = {
-  classes : any
 }
 
-class GitContent extends PureComponent<Props> {
-  static propTypes = {
-    classes: PropTypes.object.isRequired,
-  };
+class GitContentContainer extends PureComponent<Props> {
 
   render() {
     return (
-      <Card>
-        <Switch>
-          <Route exact path="/" component={ReadMe1} />
-          <Route path="/:repository" component={ReadMe} />
-        </Switch>
-        <Overlay
-          color={'rbga(0,0,0, 0.4)'}
-          eventEnable
-          visible
-        />
-      </Card>
+      <GitContent
+        {...this.props}
+      />
     );
   }
 }
 
-export default withStyles(styles)(GitContent);
+const stateToProps = state => ({
+  location: state.router.location,
+});
+
+export default connect(stateToProps)(GitContentContainer);

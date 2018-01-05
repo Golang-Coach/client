@@ -4,17 +4,18 @@
 // @flow
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
-import { connect } from 'react-redux';
 import type { Repository, RepositoriesInfo } from '../../../types';
 import Package from './package';
 
 type Props = {
-  repositoriesInfo : RepositoriesInfo
+  repositoriesInfo : RepositoriesInfo,
+  search: string,
 }
 
-class Packages extends PureComponent<Props> {
+export default class Packages extends PureComponent<Props> {
   static propTypes = {
     repositoriesInfo: PropTypes.object.isRequired,
+    search: PropTypes.string.isRequired,
   };
 
   renderItem(repository : Repository) {
@@ -22,6 +23,7 @@ class Packages extends PureComponent<Props> {
       <Package
         key={repository._id}
         repository={repository}
+        search={this.props.search}
       />
     );
   }
@@ -35,9 +37,3 @@ class Packages extends PureComponent<Props> {
     );
   }
 }
-
-const stateToProps = state => ({
-  repositoriesInfo: state.repositoriesInfo,
-});
-
-export default connect(stateToProps)(Packages);

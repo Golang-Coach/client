@@ -8,6 +8,7 @@ import grey from 'material-ui/colors/grey';
 import { withStyles } from 'material-ui/styles';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import type { Repository } from '../../../types';
 import Library from './../../common/library';
 
@@ -21,6 +22,7 @@ const styles = theme => ({
     padding: 0,
     backgroundColor: 'white',
     cursor: 'pointer',
+    textDecoration: 'none',
     '&:hover': {
       backgroundColor: grey[ 50 ],
       border: `1px solid ${theme.palette.primary[ 500 ]}`,
@@ -46,6 +48,7 @@ const styles = theme => ({
 type Props = {
   classes : any,
   repository : Repository,
+  search : string,
 }
 
 const { PureComponent } = React;
@@ -54,19 +57,27 @@ class Package extends PureComponent<Props> {
   static propTypes = {
     classes: PropTypes.object.isRequired,
     repository: PropTypes.object.isRequired,
+    search: PropTypes.string.isRequired,
   };
 
   render() {
-    const { classes, repository } = this.props;
+    const { classes, repository, search } = this.props;
+    const locationDescriptor = {
+      pathname: repository.name,
+      search,
+    };
     return (
       <ButtonBase
         className={classes.container}
       >
-        <div className={classes.card}>
+        <Link
+          to={locationDescriptor}
+          className={classes.card}
+        >
           <Library
             repository={repository}
           />
-        </div>
+        </Link>
       </ButtonBase>
     );
   }

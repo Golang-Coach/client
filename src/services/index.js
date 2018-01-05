@@ -14,4 +14,11 @@ export const GetRepositories = async (query : ?string, page: ?number, limit: ?nu
 };
 
 // eslint-disable-next-line
-export const GetReadMe = (id : string) => axios.get('packages.json');
+export const GetRepository = async (id : string) => {
+  try {
+    const { data } = await axios.get('package.json');
+    return { error: null, res: data };
+  } catch (error) {
+    return { error, res: null };
+  }
+};

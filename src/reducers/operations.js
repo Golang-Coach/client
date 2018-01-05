@@ -10,11 +10,14 @@ import {
   INPROGRESS,
   SEARCH_PACKAGE_COMPLETED,
   SEARCH_PACKAGE_START,
+  GET_README_CONTENT_START,
+  GET_README_CONTENT_COMPLETED,
 } from '../utils/constants';
 
 const initialOperations : Operations = {
   searchStatus: COMPLETED,
   scrollFetchStatus: COMPLETED,
+  readMeFetchStatus: INPROGRESS,
 };
 
 const operations = (state : Operations = initialOperations, action : Action) : Operations => {
@@ -22,11 +25,15 @@ const operations = (state : Operations = initialOperations, action : Action) : O
     case SEARCH_PACKAGE_START:
       return { ...state, searchStatus: INPROGRESS };
     case SEARCH_PACKAGE_COMPLETED:
-      return { ...state, searchStatus: INPROGRESS };
+      return { ...state, searchStatus: COMPLETED };
     case ADD_PACKAGES_START:
       return { ...state, scrollFetchStatus: INPROGRESS };
     case ADD_PACKAGES_COMPLETED:
       return { ...state, scrollFetchStatus: COMPLETED };
+    case GET_README_CONTENT_START:
+      return { ...state, readMeFetchStatus: INPROGRESS };
+    case GET_README_CONTENT_COMPLETED:
+      return { ...state, readMeFetchStatus: COMPLETED };
     default:
       return state;
   }

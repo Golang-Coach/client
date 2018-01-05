@@ -3,7 +3,7 @@
  */
 // @flow
 import type { Action, Repository } from '../types';
-import { FETCH_README_CONTENT } from '../utils/constants';
+import { GET_README_CONTENT_RESULT } from '../utils/constants';
 
 const initialRepository : Repository = {
   name: null,
@@ -20,7 +20,7 @@ const initialRepository : Repository = {
 
 const repository = (state : Repository = initialRepository, action : Action) : Repository => {
   switch (action.type) {
-    case FETCH_README_CONTENT:
+    case GET_README_CONTENT_RESULT:
       return action.repository;
     default:
       return state;

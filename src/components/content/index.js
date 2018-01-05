@@ -7,8 +7,8 @@ import Grid from 'material-ui/Grid';
 import { withStyles } from 'material-ui/styles';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
-import GitContent from './gitcontent/gitcontent';
-import Packages from './packages/packages';
+import GitContent from './gitcontent';
+import Packages from './packages';
 import Overlay from './../common/overlay';
 
 const styles = () => ({

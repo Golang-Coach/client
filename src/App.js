@@ -5,14 +5,15 @@ import cyan from 'material-ui/colors/cyan';
 import { createMuiTheme, MuiThemeProvider } from 'material-ui/styles';
 import React, { PureComponent } from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router, } from 'react-router-dom';
+import { ConnectedRouter } from 'react-router-redux';
+import createBrowserHistory from 'history/createBrowserHistory';
 import './App.css';
 import Content from './components/content';
 import Header from './components/header';
 import configureStore from './store/configureStore';
 
-const store = configureStore();
-// import 'animate.css/animate.min.css';
+const history = createBrowserHistory();
+const store = configureStore(history);
 
 type State = {
   loading : boolean
@@ -47,14 +48,14 @@ export default class App extends PureComponent<Props, State> {
 
     return (
       <Provider store={store}>
-        <Router>
+        <ConnectedRouter history={history}>
           <MuiThemeProvider theme={theme}>
             <div>
               <Header />
               <Content />
             </div>
           </MuiThemeProvider>
-        </Router>
+        </ConnectedRouter>
       </Provider>
     );
   }
