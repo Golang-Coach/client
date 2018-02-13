@@ -63,7 +63,7 @@ class Package extends PureComponent<Props> {
   render() {
     const { classes, repository, search } = this.props;
     const locationDescriptor = {
-      pathname: repository.name,
+      pathname: `/${repository.fullName}/`,
       search,
     };
     return (

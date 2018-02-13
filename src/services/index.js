@@ -3,10 +3,12 @@
  */
 import axios from 'axios';
 
+axios.defaults.baseURL = 'https://apigolangcoach.azurewebsites.net/';
+
 // eslint-disable-next-line
 export const GetRepositories = async (query : ?string, page: ?number, limit: ?number) => {
   try {
-    const { data } = await axios.get('packages.json');
+    const { data } = await axios.get('repositories/', { params: { query, page, limit } });
     return { error: null, res: data };
   } catch (error) {
     return { error, res: null };
@@ -16,7 +18,7 @@ export const GetRepositories = async (query : ?string, page: ?number, limit: ?nu
 // eslint-disable-next-line
 export const GetRepository = async (id : string) => {
   try {
-    const { data } = await axios.get('package.json');
+    const { data } = await axios.get(`repositories${id}`);
     return { error: null, res: data };
   } catch (error) {
     return { error, res: null };

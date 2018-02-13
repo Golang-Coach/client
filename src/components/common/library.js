@@ -114,7 +114,7 @@ class Package extends PureComponent<Props> {
         </div>
         <div className={classes.marginTop5}>
           <License
-            id={repository.license}
+            id={repository.license || 'mit'} // TODO -- remove license
           />
           <Stars
             count={repository.stars}
