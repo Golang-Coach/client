@@ -27,7 +27,7 @@ class ReadMeContainer extends PureComponent<Props> {
       if (pathname.startsWith('/')) {
         this._getReadMe(pathname);
       } else {
-        this._getReadMe(`${pathname}`);
+        this._getReadMe(`/${pathname}`);
       }
     } else {
       this._getReadMe(this.props.location.pathname);
