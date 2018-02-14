@@ -22,8 +22,11 @@ type Props = {
 class ReadMeContainer extends PureComponent<Props> {
   componentDidMount() {
     const query = qs.parse(this.props.location.search);
-    const pathname = query['?p'] || query.p || this.props.location;
-    this._getReadMe(`/${pathname}/`);
+    if (query['?p'] || query.p) {
+      this._getReadMe(`/${query['?p'] || query.p}/`);
+    } else {
+      this._getReadMe(this.props.location.pathname);
+    }
   }
 
   componentWillReceiveProps(nextProps : Props) {
@@ -33,7 +36,7 @@ class ReadMeContainer extends PureComponent<Props> {
   }
 
   _getReadMe(pathname : string) {
-    const packageName = pathname.substr(0, pathname.length - 1);
+    const packageName = pathname.endsWith('/') ? pathname.substr(0, pathname.length - 1) : pathname;
     this.props.getReadme(packageName);
   }
 

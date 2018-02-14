@@ -17,7 +17,8 @@ class GitContent extends PureComponent<Props> {
       <Card className="fullHeight">
         <Route render={({ location }) => {
           const query = qs.parse(location.search);
-          if ((query && (query['?p'] || query.p)) || location.pathname) {
+          console.log(query);
+          if ((query['?p'] || query.p) || (location.pathname !== '/' && location.pathname !== '')) {
             return <ReadMe />;
           }
           return <Info />;
