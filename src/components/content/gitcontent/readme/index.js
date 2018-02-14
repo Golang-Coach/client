@@ -23,7 +23,12 @@ class ReadMeContainer extends PureComponent<Props> {
   componentDidMount() {
     const query = qs.parse(this.props.location.search);
     if (query['?p'] || query.p) {
-      this._getReadMe(`/${query['?p'] || query.p}/`);
+      const pathname = query['?p'] || query.p;
+      if (pathname.startsWith('/')) {
+        this._getReadMe(pathname);
+      } else {
+        this._getReadMe(`${pathname}`);
+      }
     } else {
       this._getReadMe(this.props.location.pathname);
     }
