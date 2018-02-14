@@ -71,7 +71,7 @@ class Info extends PureComponent<Props> {
         <div className={classes.row}>
           <Avatar
             alt="Golang Coach"
-            src="golang-coach.png"
+            src="/golang-coach.png"
             className={classes.avatar}
           />
         </div>

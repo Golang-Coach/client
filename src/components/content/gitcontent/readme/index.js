@@ -4,25 +4,31 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import qs from 'qs';
 import { getReadme } from './../../../../actions/readme';
 import ReadMe from './readme';
 import { INPROGRESS } from '../../../../utils/constants';
 
+type Location = {
+  pathname: string;
+  search: string;
+}
+
 type Props = {
-  pathname : string,
+  location : Location,
   getReadme : Function,
 }
 
 class ReadMeContainer extends PureComponent<Props> {
   componentDidMount() {
-    if (this.props.pathname) {
-      this._getReadMe(this.props.pathname);
-    }
+    const query = qs.parse(this.props.location.search);
+    const pathname = query['?p'] || query.p || this.props.location;
+    this._getReadMe(`/${pathname}/`);
   }
 
   componentWillReceiveProps(nextProps : Props) {
-    if (nextProps.pathname && this.props.pathname !== nextProps.pathname) {
-      this._getReadMe(nextProps.pathname);
+    if (nextProps.location.pathname && this.props.location.pathname !== nextProps.location.pathname) {
+      this._getReadMe(this.props.location.pathname);
     }
   }
 
@@ -41,7 +47,7 @@ class ReadMeContainer extends PureComponent<Props> {
 }
 
 const stateToProps = state => ({
-  pathname: state.router.location.pathname,
+  location: state.router.location,
   repository: state.repository,
   busy: state.operations.readMeFetchStatus === INPROGRESS,
 });
