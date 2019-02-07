@@ -9,3 +9,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 [![GitHub issues](https://img.shields.io/github/issues/Golang-Coach/client.svg)]()
+
+
+This project is an opinionated catalog of open source Golang packages. Libraries come and go. The ecosystem evolves rapidly, and that's a good thing. But it means you can't rely on your bookmarks. Google may not be your best friend either since it focuses on popular results — established solutions that may not be the best fit for your project. This project will list down the most popular used Golang libraries.
